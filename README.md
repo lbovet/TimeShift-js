@@ -35,6 +35,9 @@ TimeShift.setTime(undefined);               // Reset to current time
 new Date().toString();
 "Fri Aug 09 2013 20:37:45 GMT"
 
+TimeShift.setRunning(true);                 // Make the shifted time flowing
+TimeShift.setRunning(true);                 // Reset to fixed shifted time
+
 new Date().desc();                          // Helper method
 "utc=Fri, 09 Aug 2013 20:37:46 GMT   local=Fri, 09 Aug 2013 20:37:46 GMT   offset=0"
 
