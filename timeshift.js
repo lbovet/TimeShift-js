@@ -19,11 +19,16 @@
 	
 	
 	var currentTime = undefined;
+	var running = false;
 	var timezoneOffset = new OriginalDate().getTimezoneOffset();
 	
 	function currentDate() {
 		if (currentTime) {
-			return new OriginalDate(currentTime);
+			if(running) {
+				return new OriginalDate(2*currentTime-OriginalDate.now());
+			} else {
+				return new OriginalDate(currentTime);
+			}
 		} else {
 			return new OriginalDate();
 		}
@@ -90,6 +95,13 @@
 	 */
 	TimeShift.setTime = function(time) {
 		currentTime = time;
+	}
+	
+	/**
+	 * Tells if the time should be running. Default to false, i.e. fixed time.
+	 */
+	TimeShift.setRunning = function(value) {
+		running = value;
 	}
 	
 	/**
